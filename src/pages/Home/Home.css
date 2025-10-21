@@ -1,0 +1,8 @@
+.home-page {
+  background-color: #f0f2f3;
+  opacity: 1;
+  background-image: radial-gradient(#10293f 0.5px, transparent 0.5px),
+    radial-gradient(#10293f 0.5px, #f0f2f3 0.5px);
+  background-size: 15px 15px;
+  background-position: 0 0, 7.5px 7.5px;
+}
