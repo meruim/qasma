@@ -1,4 +1,11 @@
-import { Hero, Features, About, FAQ, InstallGuide } from "@/components";
+import {
+  Hero,
+  Features,
+  About,
+  FAQ,
+  InstallGuide,
+  Support,
+} from "@/components";
 import "./Home.css";
 
 export const Home = () => {
@@ -9,6 +16,7 @@ export const Home = () => {
       <Features />
       <InstallGuide />
       <FAQ />
+      <Support />
     </div>
   );
 };

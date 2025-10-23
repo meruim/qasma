@@ -9,7 +9,10 @@ export const InstallGuide: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex items-center justify-center px-6 py-20">
+    <div
+      id="install-guide"
+      className="w-full flex items-center justify-center px-6 py-20"
+    >
       <div className="max-w-6xl w-full">
         {/* Header */}
         <div className="mb-12">

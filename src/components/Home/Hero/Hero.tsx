@@ -1,15 +1,18 @@
 import React from "react";
 import { GitHubHook } from "@/hooks";
-import hero_interface from "@/assets/img/hero_interface.png";
-import guidance_logo from "@/assets/img/guidance_logo.png";
-import jrmsu_logo from "@/assets/img/jrmsu_logo.png";
+import hero_interface from "@/assets/img/hero_interface.webp";
+import guidance_logo from "@/assets/img/guidance_logo.webp";
+import jrmsu_logo from "@/assets/img/jrmsu_logo.webp";
 import "./Hero.css";
 
 export const Hero: React.FC = () => {
   const { releaseInfo, isLoading, hasDownloaded, downloadApp } = GitHubHook();
 
   return (
-    <div className="w-full min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-12 sm:py-16 lg:py-20">
+    <div
+      id="hero"
+      className="w-full min-h-[calc(100vh-64px)] flex items-center justify-center px-6 py-12 sm:py-16 lg:py-20"
+    >
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
         {/* Left Content Section */}
         <div className="flex-1 text-center lg:text-left">
@@ -18,11 +21,13 @@ export const Hero: React.FC = () => {
             <img
               src={jrmsu_logo}
               alt="JRMSU Logo"
+              loading="lazy"
               className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-24 lg:h-24 object-contain"
             />
             <img
               src={guidance_logo}
               alt="Guidance Logo"
+              loading="lazy"
               className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-24 lg:h-24 object-contain"
             />
           </div>
@@ -118,10 +123,11 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Phone Mockup Section */}
-        <div className="hidden lg:flex flex-1 justify-center">
+        <div>
           <img
             src={hero_interface}
             alt="App Interface"
+            loading="lazy"
             className="w-64 h-auto object-contain"
             style={{ mixBlendMode: "darken" }}
           />

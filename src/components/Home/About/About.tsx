@@ -1,9 +1,9 @@
-import React from "react";
-import { Calendar, GraduationCap, Users, Briefcase } from "lucide-react";
+import { AboutPreview } from "./About-Preview";
+import { GraduationCap, Users, Briefcase } from "lucide-react";
 
 export const About: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div id="about" className="min-h-screen">
       <div className="w-full flex items-center justify-center px-6 py-20">
         <div className="max-w-6xl w-full">
           {/* Header */}
@@ -89,37 +89,7 @@ export const About: React.FC = () => {
           </section>
 
           {/* App Preview */}
-          <section>
-            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6">
-              App Preview
-            </h2>
-
-            <div className="space-y-4">
-              {/* Screenshot Placeholder 1 */}
-              <div className="bg-gray-100 rounded-lg h-80 flex items-center justify-center border border-gray-200">
-                <div className="text-center">
-                  <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500">Dashboard Screenshot</p>
-                </div>
-              </div>
-
-              {/* Screenshot Placeholder 2 */}
-              <div className="bg-gray-100 rounded-lg h-80 flex items-center justify-center border border-gray-200">
-                <div className="text-center">
-                  <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500">Booking Interface Screenshot</p>
-                </div>
-              </div>
-
-              {/* Demo GIF Placeholder */}
-              <div className="bg-gray-100 rounded-lg h-96 flex items-center justify-center border border-gray-200">
-                <div className="text-center">
-                  <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500">Demo GIF</p>
-                </div>
-              </div>
-            </div>
-          </section>
+          <AboutPreview />
         </div>
       </div>
     </div>

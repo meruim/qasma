@@ -10,7 +10,7 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div id="faq" className="min-h-screen">
       <div className="w-full flex items-center justify-center px-6 py-20">
         <div className="max-w-6xl w-full">
           {/* Header */}
