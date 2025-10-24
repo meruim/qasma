@@ -123,12 +123,25 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Phone Mockup Section */}
-        <div>
+        <div className="flex justify-center lg:justify-end w-full lg:w-auto">
           <img
             src={hero_interface}
             alt="App Interface"
             loading="lazy"
-            className="w-64 h-auto object-contain"
+            className="
+      w-40 
+      sm:w-48 
+      md:w-56 
+      lg:w-60 
+      xl:w-64 
+      h-auto 
+      object-contain 
+      mx-auto 
+      lg:mx-0 
+      transition-transform 
+      duration-300 
+      hover:scale-105
+    "
             style={{ mixBlendMode: "darken" }}
           />
         </div>
