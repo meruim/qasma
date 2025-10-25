@@ -42,7 +42,8 @@ export const NotFound: React.FC = () => {
 
         {/* Countdown */}
         <p className="text-sm opacity-80 mb-6">
-          Redirecting to home in {countdown} second{countdown !== 1 ? "s" : ""}
+          Redirecting to download page in {countdown} second
+          {countdown !== 1 ? "s" : ""}
           ...
         </p>
 
@@ -51,7 +52,7 @@ export const NotFound: React.FC = () => {
           onClick={handleGoHome}
           className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-all hover:scale-105 active:scale-95"
         >
-          Go Home Now
+          Go Download Page Now
         </button>
       </div>
     </div>
