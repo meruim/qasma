@@ -20,12 +20,13 @@ export const About: React.FC = () => {
               What We Do
             </h2>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              Our appointment app simplifies the way students, teachers, and
-              staff manage consultations and meetings. Whether you need academic
-              support, want to schedule office hours, or coordinate department
-              meetings, our platform makes it effortless. Book appointments in
-              just a few clicks and get automatic reminders so nothing falls
-              through the cracks.
+              Our QR Code-Enabled Appointment and Scheduling Manager Application
+              is designed to streamline the process of managing appointments and
+              scheduled sessions for students at the Guidance Office of the Jose
+              Rizal Memorial State University Katipunan Campus. This intuitive
+              platform simplifies scheduling, ensuring that students can easily
+              book appointments for personal or academic support with just a few
+              clicks.
             </p>
           </section>
 
@@ -46,8 +47,9 @@ export const About: React.FC = () => {
                     Students
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-base">
-                    Book appointments with teachers and advisors easily. Get
-                    academic support when you need it.
+                    Easily book appointments for counseling, testing, or other
+                    support services. Stay organized and get the help you need
+                    from the Guidance Office on time.
                   </p>
                 </div>
               </div>
@@ -60,11 +62,12 @@ export const About: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">
-                    Teachers
+                    Counselor
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-base">
-                    Manage your consultation hours efficiently. Let students
-                    book time slots that work for you.
+                    Support students by coordinating with the Guidance Office
+                    efficiently. Manage appointments and ensure students receive
+                    timely assistance.
                   </p>
                 </div>
               </div>
@@ -80,8 +83,9 @@ export const About: React.FC = () => {
                     Staff
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-base">
-                    Coordinate meetings and appointments across departments
-                    seamlessly.
+                    Coordinate and manage appointments for counseling and
+                    testing services. Keep scheduling organized and accessible
+                    across the department.
                   </p>
                 </div>
               </div>

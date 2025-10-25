@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Clock, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 
 export const Support: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const Support: React.FC = () => {
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Support & Contact
             </h1>
-            <div className="w-20 h-1 bg-blue-600"></div>
+            <div className="w-20 h-1 bg-primary"></div>
           </div>
 
           {/* Introduction */}
@@ -32,8 +32,8 @@ export const Support: React.FC = () => {
               {/* Email Support */}
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                 </div>
                 <div>
@@ -46,36 +46,18 @@ export const Support: React.FC = () => {
                   </p>
                   <a
                     href="mailto:support@studentportal.edu"
-                    className="text-blue-600 hover:text-blue-700 font-medium text-sm sm:text-base"
+                    className="text-primary hover:text-primary/80 font-medium text-sm sm:text-base"
                   >
-                    support@studentportal.edu
+                    guidance@jrmsu.edu
                   </a>
-                </div>
-              </div>
-
-              {/* Response Time */}
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-blue-600" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">
-                    Response Time
-                  </h3>
-                  <p className="text-gray-600 text-sm sm:text-base">
-                    We typically respond within 24-48 hours during business days
-                    (Monday - Friday, 9:00 AM - 5:00 PM).
-                  </p>
                 </div>
               </div>
 
               {/* Best Practices */}
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                 </div>
                 <div>

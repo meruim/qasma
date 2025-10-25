@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { GithubService } from "@/services";
 import { ReleaseParser } from "@/utils";
 import { AppConfig } from "@/config";
+import { GitHubReleaseParams } from "@/types";
 
-const useGitHubRelease = () => {
+const useGitHubRelease = ({ githubOwner, githubRepo }: GitHubReleaseParams) => {
   const [releaseInfo, setReleaseInfo] = useState<ReleaseParser.ReleaseInfo>({
     version: AppConfig.defaultVersion,
     buildNumber: AppConfig.defaultBuildNumber,
@@ -17,14 +18,17 @@ const useGitHubRelease = () => {
 
   useEffect(() => {
     fetchLatestRelease();
-  }, []);
+  }, [githubOwner, githubRepo]);
 
   const fetchLatestRelease = async () => {
     try {
       setIsLoading(true);
       setError(null);
 
-      const release = await GithubService.githubService.getLatestRelease();
+      const release = await GithubService.githubService.getLatestRelease({
+        githubOwner: githubOwner,
+        githubRepo: githubRepo,
+      });
       const parsedInfo = ReleaseParser.releaseParser.parseRelease(release);
 
       setReleaseInfo(parsedInfo);

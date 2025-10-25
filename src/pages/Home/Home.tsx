@@ -5,8 +5,7 @@ import {
   FAQ,
   InstallGuide,
   Support,
-} from "@/components";
-import "./Home.css";
+} from "@/components/Home";
 
 export const Home = () => {
   return (

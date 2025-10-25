@@ -1,4 +1,5 @@
 import { GitHubConfig } from "@/config";
+import { GitHubReleaseParams } from "@/types";
 
 export interface GitHubRelease {
   tag_name: string;
@@ -14,8 +15,11 @@ export interface GitHubRelease {
 }
 
 export const githubService = {
-  async getLatestRelease(): Promise<GitHubRelease> {
-    const url = `${GitHubConfig.apiBaseUrl}/repos/${GitHubConfig.owner}/${GitHubConfig.repo}/releases`;
+  async getLatestRelease({
+    githubOwner,
+    githubRepo,
+  }: GitHubReleaseParams): Promise<GitHubRelease> {
+    const url = `${GitHubConfig.apiBaseUrl}/repos/${githubOwner}/${githubRepo}/releases`;
 
     const response = await fetch(url);
 

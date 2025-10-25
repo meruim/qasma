@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MainLayout } from "@/layouts";
-import { Home } from "@/pages";
+import { Faculty, Home } from "@/pages";
 import { SEOData } from "./components/SEO";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/faculty" element={<Faculty />} />
         </Route>
       </Routes>
     </Router>

@@ -3,10 +3,13 @@ import { GitHubHook } from "@/hooks";
 import hero_interface from "@/assets/img/hero_interface.webp";
 import guidance_logo from "@/assets/img/guidance_logo.webp";
 import jrmsu_logo from "@/assets/img/jrmsu_logo.webp";
-import "./Hero.css";
+import { GitHubConfig } from "@/config";
 
 export const Hero: React.FC = () => {
-  const { releaseInfo, isLoading, hasDownloaded, downloadApp } = GitHubHook();
+  const { releaseInfo, isLoading, hasDownloaded, downloadApp } = GitHubHook({
+    githubOwner: GitHubConfig.owner,
+    githubRepo: GitHubConfig.studnet_repo,
+  });
 
   return (
     <div

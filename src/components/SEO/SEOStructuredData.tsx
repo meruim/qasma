@@ -1,8 +1,12 @@
 import { useEffect } from "react";
 import { GitHubHook } from "@/hooks";
+import { GitHubConfig } from "@/config";
 
 const SEOStructuredData = () => {
-  const { releaseInfo, isLoading } = GitHubHook();
+  const { releaseInfo, isLoading } = GitHubHook({
+    githubOwner: GitHubConfig.owner,
+    githubRepo: GitHubConfig.studnet_repo,
+  });
 
   useEffect(() => {
     if (!isLoading && releaseInfo.version) {

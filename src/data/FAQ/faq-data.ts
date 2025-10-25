@@ -17,7 +17,7 @@ const faqData = [
   {
     question: "Can I reschedule or cancel my appointment?",
     answer:
-      "Yes, you can reschedule or cancel appointments through the app. Go to 'My Appointments', select the appointment you want to modify, and choose either 'Reschedule' or 'Cancel'. Please note that cancellations should be made at least 24 hours in advance.",
+      "Yes, you can reschedule or cancel appointments through the app. Go to 'My Appointments', select the appointment you want to modify, and choose either 'Reschedule' or 'Cancel'.",
   },
   {
     question: "What is the QR code used for?",
@@ -32,12 +32,12 @@ const faqData = [
   {
     question: "What if I encounter technical issues?",
     answer:
-      "If you experience any technical problems, try restarting the app first. If the issue persists, contact our support team through the app's 'Help' section or email us at support@jrmsu.edu.ph. Include details about the issue and your device model.",
+      "If you experience any technical problems, try restarting the app first. If the issue persists, go to the “About” option in the menu, then scroll to the “Contact” section to reach our support team, or email us at guidance@jrmsu.edu.ph. Please include details about the issue and your device model.",
   },
   {
     question: "Can I use the app without internet connection?",
     answer:
-      "While you need internet to book appointments and sync data, you can view your existing appointments and QR codes offline. However, real-time updates and new bookings require an active internet connection.",
+      "You need an internet connection to book appointments, sync data, and access real-time updates. Make sure you’re connected to stay updated and manage your appointments smoothly.",
   },
 ];
 
