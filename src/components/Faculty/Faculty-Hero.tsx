@@ -60,7 +60,7 @@ export const FacultyHero: React.FC = () => {
 
           {/* Main Title */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-6 sm:mb-7 md:mb-8 lg:mb-8 leading-tight text-gray-900">
-            QR-Code-Enabled Appointment And Schedule Management App
+            QR Code-Enabled Appointment Scheduling Manager Application
           </h1>
 
           {/* Location */}
