@@ -1,3 +1,15 @@
 {
+  "redirects": [
+    {
+      "source": "http://jrmsu-qasma.site/:path*",
+      "destination": "https://www.jrmsu-qasma.site/:path*",
+      "permanent": true
+    },
+    {
+      "source": "https://jrmsu-qasma.site/:path*",
+      "destination": "https://www.jrmsu-qasma.site/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
