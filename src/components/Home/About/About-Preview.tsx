@@ -9,7 +9,6 @@ export const AboutPreview: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
   const slides = [overview1, overview2, overview3];
 
-  // Auto-slide every 3 seconds (pauses when user interacts)
   useEffect(() => {
     if (isPaused) return;
 
@@ -22,7 +21,7 @@ export const AboutPreview: React.FC = () => {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
     setIsPaused(true);
-    setTimeout(() => setIsPaused(false), 2000); // Resume after 5 seconds
+    setTimeout(() => setIsPaused(false), 2000);
   };
 
   const nextSlide = () => {
@@ -58,36 +57,47 @@ export const AboutPreview: React.FC = () => {
             ))}
           </div>
 
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Increased size for better touch targets */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 sm:p-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 sm:p-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-4">
+        <div
+          className="flex justify-center gap-3 mt-4"
+          role="group"
+          aria-label="Carousel navigation"
+        >
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                currentSlide === index
-                  ? "bg-primary"
-                  : "bg-gray-300 hover:bg-gray-400"
+              className={`min-w-[48px] min-h-[48px] flex items-center justify-center transition-colors ${
+                currentSlide === index ? "bg-transparent" : "bg-transparent"
               }`}
               aria-label={`Go to slide ${index + 1}`}
-            />
+              aria-current={currentSlide === index ? "true" : "false"}
+            >
+              <span
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  currentSlide === index
+                    ? "bg-primary"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-hidden="true"
+              />
+            </button>
           ))}
         </div>
       </div>

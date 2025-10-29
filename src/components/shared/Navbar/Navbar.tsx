@@ -144,7 +144,7 @@ export const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:block" aria-label="Main navigation">
             <div
               className="ml-6 flex items-baseline space-x-4 relative"
               ref={navRef}
@@ -156,6 +156,7 @@ export const Navbar: React.FC = () => {
                   left: `${indicatorStyle.left}px`,
                   width: `${indicatorStyle.width}px`,
                 }}
+                aria-hidden="true"
               />
 
               {NavConfig.map((link) => {
@@ -166,6 +167,7 @@ export const Navbar: React.FC = () => {
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     data-active={active}
+                    aria-current={active ? "page" : undefined}
                     className={`relative px-2 py-1.5 text-sm font-medium transition-opacity ${
                       active ? "opacity-100" : "opacity-80 hover:opacity-100"
                     }`}
@@ -182,12 +184,15 @@ export const Navbar: React.FC = () => {
             onClick={toggleMenu}
             className="md:hidden hover:opacity-80 transition-opacity"
             aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-controls="mobile-menu"
           >
             <svg
               className="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               {isMenuOpen ? (
                 <path
@@ -209,12 +214,15 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu with animation */}
-        <div
+        <nav
+          id="mobile-menu"
           className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
             isMenuOpen
               ? "max-h-60 opacity-100 translate-y-0"
               : "max-h-0 opacity-0 -translate-y-2"
           }`}
+          aria-label="Mobile navigation"
+          aria-hidden={!isMenuOpen}
         >
           <div className="px-2 pt-1 pb-2 space-y-1 bg-[#27287A] border-t border-white/20 rounded-b-lg">
             {NavConfig.map((link) => {
@@ -224,6 +232,7 @@ export const Navbar: React.FC = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
+                  aria-current={active ? "page" : undefined}
                   className={`relative flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
                     active
                       ? "bg-white/10 text-white"
@@ -231,14 +240,17 @@ export const Navbar: React.FC = () => {
                   }`}
                 >
                   {active && (
-                    <span className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full bg-white" />
+                    <span
+                      className="absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full bg-white"
+                      aria-hidden="true"
+                    />
                   )}
                   <span className="relative z-20">{link.label}</span>
                 </a>
               );
             })}
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

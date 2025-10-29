@@ -58,7 +58,7 @@ export const Hero: React.FC = () => {
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-8 sm:mb-9 md:mb-10 lg:mb-10">
             <svg
               className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
-              fill="#ea580c"
+              fill="#c2410c"
               viewBox="0 0 20 20"
               aria-hidden="true"
             >
@@ -68,7 +68,7 @@ export const Hero: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <p className="text-orange-600 font-semibold text-sm sm:text-base md:text-base">
+            <p className="text-orange-700 font-semibold text-sm sm:text-base md:text-base">
               Katipunan Campus, Katipunan Z.N
             </p>
           </div>
