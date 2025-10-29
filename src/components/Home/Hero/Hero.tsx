@@ -24,13 +24,17 @@ export const Hero: React.FC = () => {
             <img
               src={jrmsu_logo}
               alt="JRMSU Logo"
-              loading="lazy"
+              width="112"
+              height="112"
+              loading="eager"
               className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-24 lg:h-24 object-contain"
             />
             <img
               src={guidance_logo}
               alt="Guidance Logo"
-              loading="lazy"
+              width="112"
+              height="112"
+              loading="eager"
               className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-24 lg:h-24 object-contain"
             />
           </div>
@@ -56,6 +60,7 @@ export const Hero: React.FC = () => {
               className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
               fill="#ea580c"
               viewBox="0 0 20 20"
+              aria-hidden="true"
             >
               <path
                 fillRule="evenodd"
@@ -74,6 +79,13 @@ export const Hero: React.FC = () => {
               onClick={downloadApp}
               disabled={isLoading}
               className="bg-primary text-white font-bold py-3.5 px-10 sm:py-4 sm:px-12 md:py-4 md:px-14 rounded-lg text-sm sm:text-base md:text-base disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105 active:scale-95"
+              aria-label={
+                isLoading
+                  ? "Loading download"
+                  : hasDownloaded
+                  ? "Click here if download not started"
+                  : `Download version ${releaseInfo.version}`
+              }
             >
               <span className="flex items-center gap-2">
                 <svg
@@ -81,6 +93,7 @@ export const Hero: React.FC = () => {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -101,7 +114,10 @@ export const Hero: React.FC = () => {
 
             {/* Download Status */}
             {hasDownloaded && (
-              <p className="text-sm sm:text-base font-semibold text-primary">
+              <p
+                className="text-sm sm:text-base font-semibold text-primary"
+                role="status"
+              >
                 Your download is starting...
               </p>
             )}
@@ -129,8 +145,10 @@ export const Hero: React.FC = () => {
         <div className="flex justify-center lg:justify-end w-full lg:w-auto">
           <img
             src={hero_interface}
-            alt="App Interface"
-            loading="lazy"
+            alt="QASMA App Interface showing appointment scheduling screen"
+            width="256"
+            height="512"
+            loading="eager"
             className="
       w-40 
       sm:w-48 

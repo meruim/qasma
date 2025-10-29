@@ -4,6 +4,14 @@ import { ReleaseParser } from "@/utils";
 import { AppConfig } from "@/config";
 import { GitHubReleaseParams } from "@/types";
 
+const CACHE_DURATION = 5 * 60 * 1000;
+let cachedReleaseData: {
+  data: ReleaseParser.ReleaseInfo;
+  timestamp: number;
+  owner: string;
+  repo: string;
+} | null = null;
+
 const useGitHubRelease = ({ githubOwner, githubRepo }: GitHubReleaseParams) => {
   const [releaseInfo, setReleaseInfo] = useState<ReleaseParser.ReleaseInfo>({
     version: AppConfig.defaultVersion,
@@ -20,16 +28,41 @@ const useGitHubRelease = ({ githubOwner, githubRepo }: GitHubReleaseParams) => {
     fetchLatestRelease();
   }, [githubOwner, githubRepo]);
 
-  const fetchLatestRelease = async () => {
+  const fetchLatestRelease = async (bypassCache = false) => {
     try {
       setIsLoading(true);
       setError(null);
 
+      // Check cache validity
+      const now = Date.now();
+      const isCacheValid =
+        !bypassCache &&
+        cachedReleaseData &&
+        cachedReleaseData.owner === githubOwner &&
+        cachedReleaseData.repo === githubRepo &&
+        now - cachedReleaseData.timestamp < CACHE_DURATION;
+
+      if (isCacheValid && cachedReleaseData) {
+        // Use cached data
+        setReleaseInfo(cachedReleaseData.data);
+        setIsLoading(false);
+        return;
+      }
+
+      // Fetch fresh data from GitHub
       const release = await GithubService.githubService.getLatestRelease({
         githubOwner: githubOwner,
         githubRepo: githubRepo,
       });
       const parsedInfo = ReleaseParser.releaseParser.parseRelease(release);
+
+      // Update cache
+      cachedReleaseData = {
+        data: parsedInfo,
+        timestamp: now,
+        owner: githubOwner,
+        repo: githubRepo,
+      };
 
       setReleaseInfo(parsedInfo);
     } catch (err) {
@@ -37,6 +70,16 @@ const useGitHubRelease = ({ githubOwner, githubRepo }: GitHubReleaseParams) => {
         err instanceof Error ? err.message : "Failed to fetch release";
       setError(errorMessage);
       console.error("Error fetching release:", err);
+
+      // If fetch fails but we have cached data, use it anyway
+      if (
+        cachedReleaseData &&
+        cachedReleaseData.owner === githubOwner &&
+        cachedReleaseData.repo === githubRepo
+      ) {
+        setReleaseInfo(cachedReleaseData.data);
+        console.log("Using stale cache due to fetch error");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -46,11 +89,17 @@ const useGitHubRelease = ({ githubOwner, githubRepo }: GitHubReleaseParams) => {
     if (releaseInfo.downloadUrl && releaseInfo.downloadUrl !== "#") {
       const link = document.createElement("a");
       link.href = releaseInfo.downloadUrl;
+      link.download = `QASMA-${releaseInfo.version}.apk`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
 
       setHasDownloaded(true);
+
+      // Reset download status after 5 seconds
+      setTimeout(() => {
+        setHasDownloaded(false);
+      }, 5000);
     }
   };
 
@@ -60,7 +109,7 @@ const useGitHubRelease = ({ githubOwner, githubRepo }: GitHubReleaseParams) => {
     error,
     hasDownloaded,
     downloadApp,
-    refetch: fetchLatestRelease,
+    refetch: () => fetchLatestRelease(true),
   };
 };
 
