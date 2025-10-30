@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /faculty
 Allow: /
+
+Sitemap: https://www.jrmsu-qasma.site/sitemap.xml
